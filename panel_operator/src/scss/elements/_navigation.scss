@@ -2,6 +2,152 @@
 @import "../settings/mixins";
 @import "../settings/colors";
 
-.navigation{
-  background-color: yellow;
+.navigation {
+  margin-top: 50px;
+
+  .wrapper {
+    width: 100%;
+    align-content: center;
+    flex-direction: column;
+
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+
+
+    &__content {
+      display: flex;
+      margin: 20px;
+    }
+  }
+
+  &__list__container {
+    display: flex;
+
+    @include mobile {
+      position: absolute;
+      left: 0;
+      top: 158px;
+      flex-direction: column;
+      background-color: $color-bg;
+      width: 100%;
+      padding-bottom: 20px;
+      display: none;
+      text-align: right;
+    }
+  }
+
+  .list__item {
+    padding: 10px;
+  }
+
+  .list__link {
+    display: block;
+    padding: 14px 20px;
+    transition: 1s;
+  }
+
+  .list__link:hover {
+    padding-left: 25px;
+    padding-right: 25px;
+    border: solid 3px rgba(0, 0, 0, 1);
+    border-radius: 8px;
+    box-shadow: 10px 5px 5px $color-main;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+  }
+
+  .menu__btn {
+    display: none;
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    opacity: 0;
+
+    @include mobile {
+      &:checked {
+        ~ .header__nav {
+          display: flex;
+        }
+
+        ~ .menu__toggle {
+          span {
+            &:nth-child(1) {
+              transform: rotate(45deg) translate(2px, 5px);
+            }
+
+            &:nth-child(2) {
+              opacity: 0;
+            }
+
+            &:nth-child(3) {
+              transform: rotate(-45deg) translate(2px, -5px);
+            }
+          }
+        }
+
+        & + label + .navigation__list__container {
+          display: flex;
+          z-index: 9999;
+          background-color: $color-bg;
+          padding: 5px;
+        }
+      }
+    }
+  }
+
+  .menu__toggle {
+    display: none;
+
+    span {
+      width: 20px;
+      height: 2px;
+      display: block;
+      margin-bottom: 3px;
+      background-color: $color-main;
+      transition: .3s all ease-in-out;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    @include mobile {
+      display: block;
+    }
+  }
+
+  @keyframes loading-bar {
+    10% {
+      width: 25%;
+      border-bottom: #24959e solid 5px;
+    }
+    50% {
+      width: 75%;
+      border-bottom: #8ac640 solid 5px;
+    }
+    100% {
+      width: 100%;
+      border-bottom: #24959e solid 5px;
+    }
+  }
+
+  .loading__bar {
+    height: 5px;
+    box-shadow:  10px 5px 5px #8ac640 ;
+    animation-name: loading-bar;
+    animation-duration: 4s;
+    animation-delay: 2s;
+    animation-timing-function: ease-in;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+  }
 }
