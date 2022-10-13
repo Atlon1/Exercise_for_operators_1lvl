@@ -1,6 +1,5 @@
 import React from "react";
 import '../scss/main.scss';
-import {HashLink} from "react-router-hash-link";
 import {Link} from "react-router-dom";
 import logo from "../assets/Logo.jpg";
 
@@ -28,7 +27,7 @@ const Navigation = () => {
                             </li>
                             <li className='list__item'>
                                 <div className='list__link'>
-                                    <Link to='/'>Szkolenie dla operatorów</Link>
+                                    <Link to='/excersize'>Szkolenie dla operatorów</Link>
                                 </div>
                             </li>
                         </ul>

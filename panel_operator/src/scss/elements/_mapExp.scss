@@ -1,0 +1,72 @@
+@import "../settings/fonts";
+@import "../settings/mixins";
+@import "../settings/colors";
+
+.mapExp {
+
+  .wrapper {
+    margin-top: 8px;
+  }
+
+  &__container {
+    width: 25%;
+    background-color: black;
+
+    &__list {
+      padding: 10px;
+    }
+
+    .list__item {
+
+      .list__link {
+        display: block;
+        padding: 14px 20px;
+        transition: 1s;
+        font-size: 1rem;
+      }
+
+      .list__link:hover {
+        padding-left: 25px;
+        padding-right: 25px;
+        border-radius: 8px;
+        box-shadow: 10px 5px 5px $color-main;
+      }
+
+      a {
+        text-decoration: none;
+        color: silver;
+        font-size: 20px;
+      }
+    }
+
+    &__secList {
+
+    }
+
+    &__row {
+
+    }
+
+    &__link {
+      display: block;
+      padding: 14px 35px;
+      transition: 1s;
+      font-size: 1rem;
+    }
+    &__link:hover {
+      padding-left: 25px;
+      padding-right: 25px;
+      border-radius: 8px;
+      box-shadow: 10px 5px 5px $color-main;
+    }
+  }
+
+  &__containerSec {
+    width: 75%;
+  }
+  .btn__link {
+    color: silver;
+    background-color: black;
+    font-size: 20px;
+  }
+}
