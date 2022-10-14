@@ -3,6 +3,13 @@ import '../scss/main.scss';
 import {Link} from "react-router-dom";
 import {CSSTransition} from "react-transition-group";
 import decoration from "../assets/Decoration.svg";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
+import stoz1 from '../assets/Stoz/Stoz_1.jpg';
+import stoz2 from '../assets/Stoz/Stoz_2.jpg';
+import stoz3 from '../assets/Stoz/Stoz_3.jpg';
+import stoz4 from '../assets/Stoz/Stoz_4.jpg';
+
 
 const MapExp = () => {
 
@@ -17,6 +24,9 @@ const MapExp = () => {
 
     const [displayOnFour, setDisplayOnFour] = useState(false);
     const [currentValueFour, setCurrentValueFour] = useState('none');
+
+    const [displayWelcomeSection, setDisplayWelcomeSection] = useState('block');
+    const [displayFirstExample, setDisplayFirstExample] = useState('none');
 
 
     const handleOnClickFirst = (value) => {
@@ -36,10 +46,21 @@ const MapExp = () => {
         setCurrentValueFour(value);
     }
 
+    const handleFirstExp = (e) => {
+        e.preventDefault()
+        setDisplayWelcomeSection('none')
+        setDisplayFirstExample('block')
+
+    }
+
     const secContainerSection = () => {
 
         return (
-            <section className="welcome">
+            <section className="welcome" style={
+                {
+                    display: displayWelcomeSection
+                }
+            }>
                 <div className='wrapper'>
                     <div className='welcome__content'>
                         <img className='welcome__decoration' src={decoration} alt='decoration'/>
@@ -59,6 +80,26 @@ const MapExp = () => {
         )
     }
 
+    const carouselSectionFirst = () => {
+
+
+        return (
+            <section className='firstExample' style={
+                {
+                    display: displayFirstExample
+                }
+            }>
+                <div className='wrapper'>
+                    <Carousel>
+                        <img src={stoz2} alt='stoz2'/>
+                        <img src={stoz1} alt='stoz1'/>
+                        <img src={stoz3} alt='stoz3'/>
+                        <img src={stoz4} alt='stoz4'/>
+                    </Carousel>
+                </div>
+            </section>
+        )
+    }
 
     return (
         <section className='mapExp'>
@@ -83,24 +124,16 @@ const MapExp = () => {
                                     }
                                 }>
                                     <li className='mapExp__container__row'>
-                                        <div className='mapExp__container__link'>
-                                            <Link to='/'>Objaśnienie na przykładzie</Link>
-                                        </div>
+                                        <button className='mapExp__container__link' onClick={handleFirstExp}>Objaśnienie na przykładzie</button>
                                     </li>
                                     <li className='mapExp__container__row'>
-                                        <div className='mapExp__container__link'>
-                                            <Link to='/'>Zadanie 1</Link>
-                                        </div>
+                                        <button className='mapExp__container__link'>Zadanie 1</button>
                                     </li>
                                     <li className='mapExp__container__row'>
-                                        <div className='mapExp__container__link'>
-                                            <Link to='/'>Zadanie 2</Link>
-                                        </div>
+                                        <button className='mapExp__container__link'>Zadanie 2</button>
                                     </li>
                                     <li className='mapExp__container__row'>
-                                        <div className='mapExp__container__link'>
-                                            <Link to='/'>Zadanie 3</Link>
-                                        </div>
+                                        <button className='mapExp__container__link'>Zadanie 3</button>
                                     </li>
                                 </ul>
                             </CSSTransition>
@@ -229,6 +262,7 @@ const MapExp = () => {
                 </div>
                 <div className='mapExp__containerSec'>
                     {secContainerSection()}
+                    {carouselSectionFirst()}
                 </div>
             </div>
         </section>
