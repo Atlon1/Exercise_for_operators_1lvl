@@ -21,9 +21,10 @@
     margin-bottom: 150px;
 
     &__text {
+      transition: 1s;
     text-align: center;
       margin-top: 15px;
-      font-size: 25px;
+      font-size: calc(15px + 4 * ((100vw - 320px) / 680));
       color: white;
     }
 
@@ -40,7 +41,8 @@
   }
 
   h1 {
-    font-size: 35px;
+    transition: 1s;
+    font-size: calc(19px + 4 * ((100vw - 320px) / 680));
     font-weight: 700;
     margin-bottom: 25px;
   }
@@ -95,7 +97,6 @@
   }
 
   h1 {
-    font-size: 35px;
     font-weight: 700;
     margin-bottom: 25px;
   }

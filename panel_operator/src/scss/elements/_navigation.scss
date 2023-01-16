@@ -20,7 +20,10 @@
 
     &__content {
       display: flex;
+      justify-content: flex-end;
+      align-items: center;
       margin: 20px;
+      width: 550px;
     }
   }
 
@@ -30,7 +33,7 @@
     @include mobile {
       position: absolute;
       left: 0;
-      top: 158px;
+      top: 100px;
       flex-direction: column;
       background-color: $color-bg;
       width: 100%;
@@ -45,7 +48,10 @@
   }
 
   .list__link {
-    display: block;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
     padding: 14px 20px;
     transition: 1s;
   }
@@ -60,8 +66,12 @@
 
   a {
     text-decoration: none;
+    transition: 1s;
     color: black;
-    font-size: 20px;
+    font-size: calc(13px + 4 * ((100vw - 320px) / 680));
+    @include mobile {
+      font-size: 20px
+    }
   }
 
   .menu__btn {
